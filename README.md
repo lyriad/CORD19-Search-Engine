@@ -15,8 +15,12 @@ ISC-446 final project
   git clone https://github.com/lyriad/CORD19-Search-Engine.git
   ```
 
+- Add the neccessary environment variables in a `.env` in the root directory:
+  ```bash
+  MONGO_URI=mongodb://localhost:27017/db
+  ```
 - Execute the project by running: 
-  - **Note:** keep in mind that after installing new dependencies and adding them in the `requirements.txt` you'll have to run this command once again.
+  - **Note:** keep in mind that after installing new dependencies and adding them in the `requirements.txt` you'll have to run `docker-compose up --build`.
 
   ```bash
   docker-compose up
@@ -35,3 +39,7 @@ ISC-446 final project
   ```bash
   docker-compose down
   ```
+
+  ### environment variables
+  - `MONGO_URI`: URI of the database could be hosted online or local
+  
