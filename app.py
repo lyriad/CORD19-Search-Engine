@@ -42,6 +42,13 @@ def index():
 
     return render_template('search.html', articles = articles)
 
+@app.route('/article/<paper_id>')
+def article(paper_id):
+
+    article = mongo2.db.articles.find({'paper_id': paper_id},{'_id':0})[0]
+
+    return render_template('article.html', article = article)
+
 @app.route('/test')
 def testdb():
     return  json.dumps({'test': [x for x in mongo2.db.articles.find({'paper_id': 'be5bddac1b08e3f6c757bdbd6564255e6ee96f4a'},{'_id':0})]})

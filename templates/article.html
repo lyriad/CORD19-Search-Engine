@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="content-wrapper d-flex align-items-start px-0">
+        <div class="row w-100 mx-0">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-left py-2 px-4 px-sm-5">
+                    <h1>{{ article['title'] if article['title'] != 'X' else 'No tiene titulo' }}</h1>
+                    <hr>
+                    <p class="article-body">klak</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

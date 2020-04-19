@@ -4,7 +4,7 @@
 <h3 class="text-center">Resultados</h3>
 <div class="list-group w-50 mx-auto">
     {% for article in articles %}
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-center">
+    <a href="/article/{{ article['id'] }}" class="list-group-item list-group-item-action flex-column align-items-center">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{ article['title'] if article['title'] != 'X' else article['id'] }}</h5>
         </div>
