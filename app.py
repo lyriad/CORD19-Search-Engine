@@ -25,6 +25,11 @@ app = Flask(__name__)
 mongo1 = PyMongo(app, uri = os.getenv("MONGO_URI_1"))
 mongo2 = PyMongo(app, uri = os.getenv("MONGO_URI_2"))
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+    
 @app.route('/')
 def index():
     query = request.args['query'] if 'query' in request.args else None
@@ -46,7 +51,9 @@ def index():
 def article(paper_id):
     print(paper_id)
 
-    article = mongo1.db.articles.find_one_or_404({'paper_id': paper_id},{'_id':0}) 
+    article = mongo1.db.articles.find_one({'paper_id': paper_id},{'_id':0}) 
+    if article is None:
+        article = mongo2.db.articles.find_one_or_404({'paper_id': paper_id},{'_id':0})
 
     return render_template('article.html', article = article)
 
