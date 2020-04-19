@@ -3,6 +3,7 @@ version: "3"
 services:
   cord19:
     build: .
+    restart: always
     ports:
       - "5000:5000"
     volumes:

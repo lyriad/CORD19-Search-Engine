@@ -1,1 +1,4 @@
 data/
+.env
+.vscode
+.DS_Store

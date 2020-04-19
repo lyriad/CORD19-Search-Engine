@@ -1,4 +1,7 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template
+from flask_pymongo import PyMongo
 import numpy as np
 import pandas as pd
 import math
@@ -14,11 +17,21 @@ df.head()
 vectorizer = pickle.load(open("data/vectorizer.pickle", "rb"))
 train = pickle.load(open("data/train.pickle", "rb"))
 
+load_dotenv()
+
 app = Flask(__name__)
+
+## sets up the database
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+mongo = PyMongo(app)
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/test')
+def testdb():
+    return  json.dumps({'test': [x for x in mongo.db.test.find({},{'_id':0})]})
 
 @app.route('/search', methods=['GET'])
 def search():

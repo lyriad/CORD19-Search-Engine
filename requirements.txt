@@ -1,1 +1,7 @@
 flask
+Flask-PyMongo
+pymongo[srv]
+python-dotenv
+numpy
+pandas
+sklearn
