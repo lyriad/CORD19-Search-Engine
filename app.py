@@ -44,8 +44,9 @@ def index():
 
 @app.route('/article/<paper_id>')
 def article(paper_id):
+    print(paper_id)
 
-    article = mongo2.db.articles.find({'paper_id': paper_id},{'_id':0})[0]
+    article = mongo1.db.articles.find_one_or_404({'paper_id': paper_id},{'_id':0}) 
 
     return render_template('article.html', article = article)
 

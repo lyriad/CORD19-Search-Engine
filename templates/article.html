@@ -6,9 +6,23 @@
         <div class="row w-100 mx-0">
             <div class="col-lg-8 mx-auto">
                 <div class="text-left py-2 px-4 px-sm-5">
-                    <h1>{{ article['title'] if article['title'] != 'X' else 'No tiene titulo' }}</h1>
+                    <h2>Titulo:<br></h2>
+                    <h3 class="ml-5 text-justify">    
+                    {{ article['metadata']['title'] if article['metadata']['title'] != '' else 'N/A' }}
+                    </h3>
                     <hr>
-                    <p class="article-body">klak</p>
+                    <p class="article-body text-justify font-italic">
+                        {% for paragraph in article['abstract'] %}
+                        {{ paragraph['text'] }}
+                        <br><br>
+                        {% endfor %}
+                    </p>
+                    <p class="article-body text-justify">
+                        {% for paragraph in article['body_text'] %}
+                        {{ paragraph['text'] }}
+                        <br><br>
+                        {% endfor %}
+                    </p>
                 </div>
             </div>
         </div>
