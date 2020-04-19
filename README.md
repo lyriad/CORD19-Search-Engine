@@ -17,8 +17,10 @@ ISC-446 final project
 
 - Add the neccessary environment variables in a `.env` in the root directory:
   ```bash
-  MONGO_URI=mongodb://localhost:27017/db
+  MONGO_URI_1=mongodb://localhost:27017/db
+  MONGO_URI_2=mongodb://localhost:27017/db_2
   ```
+
 - Execute the project by running: 
   - **Note:** keep in mind that after installing new dependencies and adding them in the `requirements.txt` you'll have to run `docker-compose up --build`.
 
@@ -41,5 +43,6 @@ ISC-446 final project
   ```
 
   ### environment variables
-  - `MONGO_URI`: URI of the database could be hosted online or local
+  - `MONGO_URI_1`: URI of the database could be hosted online or local
+  - `MONGO_URI_2`: URI of the database could be hosted online or local
   
