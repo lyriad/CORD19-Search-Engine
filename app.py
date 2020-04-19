@@ -41,8 +41,11 @@ def search():
     results = cosine_similarity(train,query_vec).reshape((-1,))
 
     for i in results.argsort()[-10:][::-1]:
+        article = {}
         if( results[i] > 0.2 ):
-            show_results.append(df.iloc[i,0])
+            article['id'] = df.iloc[i,0]
+            article['title'] = df.iloc[i,1]
+            show_results.append(article)
     
     return json.dumps({'results': show_results})
 
