@@ -62,4 +62,4 @@ def testdb():
     return  json.dumps({'test': [x for x in mongo2.db.articles.find({'paper_id': 'be5bddac1b08e3f6c757bdbd6564255e6ee96f4a'},{'_id':0})]})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
