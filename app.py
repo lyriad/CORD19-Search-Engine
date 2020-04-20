@@ -1,5 +1,4 @@
 import os
-import urllib.request
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from flask_pymongo import PyMongo
@@ -15,8 +14,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 df = pd.read_csv('data/articles_dataset.csv')
 df.head()
-vectorizer = pickle.load(urllib.request.urlopen('https://isc-446-cord19.s3.us-east-2.amazonaws.com/vectorizer.pickle'))
-train = pickle.load(urllib.request.urlopen('https://isc-446-cord19.s3.us-east-2.amazonaws.com/train.pickle'))
+vectorizer = pickle.load(open("data/vectorizer.pickle", "rb"))
+train = pickle.load(open("data/train.pickle", "rb"))
 
 load_dotenv()
 
