@@ -14,8 +14,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 df = pd.read_csv('./data/articles_dataset.csv')
 df.head()
-vectorizer = pickle.load(open("./data/vectorizer.pickle", "rb"))
 train = pickle.load(open("./data/train.pickle", "rb"))
+vectorizer = pickle.load(open("./data/vectorizer.pickle", "rb"))
 
 load_dotenv()
 
